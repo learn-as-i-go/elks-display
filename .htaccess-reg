@@ -1,0 +1,119 @@
+# Digital Sign Security Configuration - Shared Hosting Compatible
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Basic Security Headers (if mod_headers is available)
+<IfModule mod_headers.c>
+    # Prevent XSS attacks
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Prevent clickjacking
+    Header always set X-Frame-Options "DENY"
+    
+    # Remove server information
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# Protect sensitive files and directories
+<FilesMatch "\.(ini|log|conf|sql|db|sqlite|sqlite3)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect database files
+<Files "*.db">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect configuration files
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "config-*.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect backup files
+<FilesMatch "\.(bak|backup|old|orig|save|swp|tmp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect version control files
+<FilesMatch "\.(git|svn|hg|bzr)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to PHP files in uploads directory
+<Directory "uploads">
+    <Files "*.php">
+        Order allow,deny
+        Deny from all
+    </Files>
+    <Files "*.phtml">
+        Order allow,deny
+        Deny from all
+    </Files>
+</Directory>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Prevent access to hidden files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Set proper MIME types for images
+AddType image/webp .webp
+
+# Enable compression (if mod_deflate is available)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Set cache headers for static assets (if mod_expires is available)
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/x-javascript "access plus 1 week"
+</IfModule>
+
+# Basic attack pattern blocking (simplified)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Block obvious SQL injection attempts
+    RewriteCond %{QUERY_STRING} (union|select|insert|drop|delete|update|create|alter|exec|script) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+    
+    # Block directory traversal attempts
+    RewriteCond %{QUERY_STRING} \.\./\.\./\.\./\.\./ [NC]
+    RewriteRule ^(.*)$ - [F,L]
+</IfModule>

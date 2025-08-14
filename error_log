@@ -1,0 +1,8 @@
+[29-Jul-2025 15:27:39 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/magicofr/public_html/rockthecashbaugh/elks/debug-display.php:9) in /home2/magicofr/public_html/rockthecashbaugh/elks/api/content.php on line 2
+[29-Jul-2025 15:27:39 America/Boise] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/magicofr/public_html/rockthecashbaugh/elks/debug-display.php:9) in /home2/magicofr/public_html/rockthecashbaugh/elks/api/content.php on line 3
+[29-Jul-2025 15:27:39 America/Boise] PHP Warning:  require_once(../includes/db.php): Failed to open stream: No such file or directory in /home2/magicofr/public_html/rockthecashbaugh/elks/api/content.php on line 5
+[29-Jul-2025 15:27:39 America/Boise] PHP Fatal error:  Uncaught Error: Failed opening required '../includes/db.php' (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home2/magicofr/public_html/rockthecashbaugh/elks/api/content.php:5
+Stack trace:
+#0 /home2/magicofr/public_html/rockthecashbaugh/elks/debug-display.php(59): include()
+#1 {main}
+  thrown in /home2/magicofr/public_html/rockthecashbaugh/elks/api/content.php on line 5

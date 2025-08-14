@@ -1,0 +1,89 @@
+[29-Jul-2025 15:05:39 America/Boise] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'your_username'@'localhost' (using password: YES)
+[29-Jul-2025 15:10:39 America/Boise] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'your_username'@'localhost' (using password: YES)
+[29-Jul-2025 15:15:05 America/Boise] Query failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'magicofr_digital_sign.presidents' doesn't exist SQL: 
+        SELECT id, name, year, image_path 
+        FROM presidents 
+        WHERE image_path IS NOT NULL 
+        ORDER BY year ASC
+    
+[29-Jul-2025 15:16:33 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:19:00 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:19:03 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:19:04 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:19:05 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:19:57 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:19:58 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:22:19 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    
+[29-Jul-2025 15:22:58 America/Boise] Query failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' '+30 days')
+        ORDER BY event_date ASC, event_time ASC' at line 5 SQL: 
+        SELECT id, title, description, event_date, event_time, location 
+        FROM events 
+        WHERE is_active = 1 
+        AND event_date >= date('now')
+        AND event_date <= date('now', '+30 days')
+        ORDER BY event_date ASC, event_time ASC
+    

@@ -1,0 +1,18 @@
+# Configuration files with credentials
+includes/config.php
+
+# Upload directories
+uploads/
+uploads/*
+
+# Database files
+*.db
+*.sqlite
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log

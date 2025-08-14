@@ -1,0 +1,354 @@
+/* Digital Sign Display Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.refresh-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #ccc;
+    z-index: 1000;
+}
+
+.display-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    height: calc(100vh - 80px);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Main content area - large slides on left */
+.main-content {
+    grid-column: 1;
+    grid-row: 1;
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    padding: 30px;
+    border: 2px solid #ffd700;
+    overflow: hidden;
+    position: relative;
+}
+
+#main-slides {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.slide-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slide-item.active {
+    opacity: 1;
+}
+
+.slide-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.slide-date {
+    font-size: 28px;
+    color: #4a90e2;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.slide-text {
+    font-size: 24px;
+    line-height: 1.4;
+    color: #fff;
+    text-align: center;
+    max-width: 90%;
+}
+
+.slide-location {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #4a90e2;
+    font-style: italic;
+}
+
+.slide-image {
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #4a90e2;
+}
+
+/* Right sidebar - split into two card sections */
+.sidebar {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rulers-section,
+.board-section {
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #4a90e2;
+    height: calc(50% - 10px);
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4a90e2;
+    padding-bottom: 8px;
+}
+
+#ruler-slides,
+#board-slides {
+    position: relative;
+    height: calc(100% - 40px);
+}
+
+#ruler-slides .slide,
+#board-slides .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#ruler-slides .slide.active,
+#board-slides .slide.active {
+    opacity: 1;
+}
+
+/* News ticker - fixed at bottom */
+.news-ticker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: rgba(0,0,0,0.9);
+    border-top: 3px solid #e74c3c;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.ticker-label {
+    background: #e74c3c;
+    color: white;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    min-width: 120px;
+}
+
+.ticker-content {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.ticker-text {
+    white-space: nowrap;
+    animation: scroll-left 60s linear infinite;
+    font-size: 20px;
+    color: #fff;
+    padding-left: 20px;
+}
+
+/* Person images in sidebar - smaller and contained */
+.ruler-image,
+.board-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #4a90e2;
+}
+
+.ruler-info,
+.board-info {
+    text-align: center;
+    margin-top: 8px;
+}
+
+.ruler-name,
+.board-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.ruler-year,
+.board-position {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Ticker styles */
+.ticker {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: scroll-left 60s linear infinite;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Welcome slide */
+.welcome-slide {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.welcome-title {
+    font-size: 72px;
+    color: #ffd700;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.welcome-subtitle {
+    font-size: 36px;
+    color: #4a90e2;
+    margin-bottom: 30px;
+}
+
+.welcome-text {
+    font-size: 24px;
+    color: #ccc;
+}
+
+/* Error display */
+.display-error {
+    text-align: center;
+    color: #e74c3c;
+    padding: 50px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .display-container {
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .slide-title {
+        font-size: 36px;
+    }
+    
+    .slide-date {
+        font-size: 24px;
+    }
+    
+    .slide-content {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .display-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto;
+        padding: 10px;
+    }
+    
+    .main-content {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .sidebar {
+        grid-column: 1;
+        grid-row: 2;
+        flex-direction: row;
+        height: 200px;
+    }
+    
+    .sidebar-section {
+        height: 100%;
+        width: 50%;
+    }
+    
+    .ticker-container {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
